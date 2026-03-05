@@ -1,0 +1,687 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Aide à garder les dimensions précises */
+}
+
+body {
+  overflow-x: hidden; /* Évite les scrolls horizontaux bizarres */
+  background-color: #000b29; /* BLEU NUIT UEFA */
+}
+
+/*Header CSS*/
+/* HEADER */
+.site-header {
+  width: 100%;
+  background: #001242; /* BLEU ROYAL */
+  padding: 20px 0;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* conteneur interne */
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* logo */
+.logo a {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* menu */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.nav-links li {
+  flex: 1;
+}
+
+.nav-links a {
+  display: block;
+  text-align: center;
+}
+
+/* boutons */
+.nav-btn {
+  background-color: #4071b6;
+  color: white;
+  text-decoration: none;
+  padding: 10px 18px;
+  transition: 0.2s;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* hover */
+.nav-btn:hover {
+  background: #2c4978;
+}
+
+.nav-btn-primary:hover {
+  background: #1d5ee0;
+}
+
+/*Body CSS*/
+
+.hero {
+  background: radial-gradient(circle at center, #29407a 0%, #1f2a4c 100%);
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  overflow: hidden;
+  padding: 60px 20px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+/* CAROUSEL */
+.carousel-container {
+  width: 100%;
+  scroll-snap-type: x proximity; /* CHANGE 'mandatory' par 'proximity' */
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 20px 0;
+  transition: transform 4s ease-in-out; /* Durée de 2s et mouvement fluide */
+  will-change: transform; /* Optimise les performances du zoom */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  cursor: none !important; /* Cache le curseur ici */
+}
+
+.carousel-track {
+  display: flex;
+  padding: 0 10%;
+  margin-left: 10%;
+}
+
+.carousel-slide {
+  flex: 0 0 80%;
+  margin-right: 20px;
+  height: 400px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 20px 20px 0 0; /* Arrondi seulement en haut pour le style */
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* 1. On passe les poteaux en Argent/Gris clair */
+  border: 22px solid #d1d5db; 
+  border-bottom: none;
+
+  /* 2. On ajuste les contours gris */
+  box-shadow: 
+    0 0 0 4px #4b5563, 
+    inset 0 0 0 4px #4b5563,
+    0 10px 20px rgba(0,0,0,0.5);
+
+  /* 3. On ajuste le rayon de bordure */
+  border-radius: 20px 20px 0 0;
+
+  background: rgba(64, 92, 172, 0.7); 
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 4px, transparent 4px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 4px, transparent 4px);
+  background-size: 50px 50px;
+  
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  /* Le filet */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  
+  position: relative;
+  overflow: hidden;
+  cursor: none !important;
+}
+
+/* Ombre interne de la cage */
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* CIBLE (Target) */
+.target-text {
+  position: relative;
+  z-index: 10;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #263a70;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  padding: 20px;
+
+  /* Création des cercles concentriques Bleu et Blanc */
+  background: radial-gradient(
+    circle,  
+    white 25%,     /* Première bande blanche */
+    white 60%,
+    #0046a8 60%,   /* Deuxième bande bleue */
+    #0046a8 65%,
+    white 65%,     /* Troisième bande blanche */
+    white 75%,
+    #0046a8 75%,   /* Bord extérieur bleu */
+    #0046a8 100%
+  );
+  
+  /* Ombre pour donner du relief à la cible */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4), inset 0 0 15px rgba(0,0,0,0.2);
+  border: 4px solid white;
+}
+
+/*La cible réagit comme si elle était sous pression*/
+.carousel-slide:hover .target-text {
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.terrain-container {
+  margin-top: 20px;
+  perspective: 1000px; 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in; 
+  will-change: transform, opacity;
+
+  max-height: 25vh; 
+  overflow: visible;
+}
+
+.terrain-herbe {
+  background-color: #064e3b; /* Vert sombre UEFA */
+  width: 70em;
+  height: 20em;
+  position: relative;
+  transform: rotateX(60deg); 
+  transform-origin: top;
+
+  transform-style: preserve-3d;
+
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 100px,
+    transparent 100px,
+    transparent 200px
+  );
+  
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.point-penalty {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  width: 2em;
+  height: 1.9em;
+  border-radius: 45%;
+
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  box-shadow: inset -2px -2px 5px rgba(0,0,0,0.2), 
+              0 5px 10px rgba(0,0,0,0.2);
+}
+
+.lignes-blanches1 {
+  position: absolute;
+  background-color: white;
+  
+  width: 5px; 
+  height: 81.5%; 
+  bottom: 10%;
+  left: 10%;
+  
+  transform: translateX(-50%);
+  
+  backface-visibility: hidden; 
+  pointer-events: none;
+}
+
+.lignes-blanches2 {
+  position: absolute;
+  background-color: white;
+  
+  width: 5px; 
+  height: 81.5%; 
+  bottom: 10%;
+  left: 90%;
+  
+  transform: translateX(-50%);
+  
+  backface-visibility: hidden; 
+  pointer-events: none;
+}
+
+.lignes-blanches3 {
+  position: absolute;
+  background-color: white;
+  
+  width: 80%; 
+  height: 5px; 
+  bottom: 10%;
+  left: 50%;
+  
+  transform: translateX(-50%);
+  
+  backface-visibility: hidden; 
+  pointer-events: none;
+}
+
+.lignes-blanches4 {
+  position: absolute;
+  background-color: white;
+  
+  width: 80%; 
+  height: 5px; 
+  bottom: 90%;
+  left: 50%;
+  
+  transform: translateX(-50%);
+  
+  backface-visibility: hidden; 
+  pointer-events: none;
+}
+
+/* Positionnement des lucarnes */
+.lucarne-L, .lucarne-R {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  border: 10px solid #d1d5db; 
+  z-index: 5;
+  pointer-events: none; /* Pour ne pas gêner le clic */
+}
+
+/* Lucarne Gauche */
+.lucarne-L {
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 50px; /* Voilà ton arrondi */
+  /* Petite ombre grise pour le relief */
+  box-shadow: -2px -2px 0 2px #4b5563;
+}
+
+/* Lucarne Droite */
+.lucarne-R {
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 50px;
+  box-shadow: 2px -2px 0 2px #4b5563;
+}
+
+/* Optionnel : ajouter un petit renfort métallique en diagonale */
+.lucarne-L::after, .lucarne-R::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background: #4b5563;
+}
+
+.lucarne-L::after {
+  transform: rotate(-45deg);
+  bottom: 5px;
+  right: 15px;
+}
+
+.lucarne-R::after {
+  transform: rotate(45deg);
+  bottom: 5px;
+  left: 15px;
+}
+
+/* BALLON (Le curseur) */
+#football-cursor {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-out;
+  transform: translate(-50%, -50%); /* Pour centrer le ballon sur la pointe de souris */
+}
+
+.show-ball {
+  cursor: none; /* Cache la flèche de la souris */
+}
+
+/* FLÈCHES */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 70, 168, 0.7);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer !important;
+}
+
+/* Position spécifique pour la flèche Gauche */
+.nav-arrow.prev {
+  left: 20px; /* À 20px du bord gauche */
+}
+
+/* Position spécifique pour la flèche Droite */
+.nav-arrow.next {
+  right: 20px; /* À 20px du bord droit */
+}
+
+/* Les estrades */
+.estrade {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 650px; /* Ajuste la largeur selon tes besoins */
+}
+
+.gradin {
+  height: 35px; /* Légèrement plus haut pour accueillir les corps */
+  background: #000b29; 
+  border-bottom: 4px solid #000;
+  position: relative;
+  overflow: hidden; /* Pour couper les supporters proprement en bas */
+}
+
+/* Effet de perspective pour l'estrade gauche */
+.estrade-L {
+  transform: perspective(500px) rotateY(30deg);
+}
+
+.estrade-L .gradin:nth-child(1) {
+  width: 60%;
+  align-self: flex-end;
+}
+
+.estrade-L .gradin:nth-child(2) {
+  width: 80%;
+  align-self: flex-end;
+}
+
+.estrade-L .gradin:nth-child(3) {
+  width: 100%;
+  align-self: flex-end;
+}
+
+/* Effet de perspective pour l'estrade droite */
+.estrade-R {
+  transform: perspective(500px) rotateY(-30deg);
+}
+
+.estrade-R .gradin:nth-child(1) {
+  width: 60%;
+  align-self: flex-start;
+}
+
+.estrade-R .gradin:nth-child(2) {
+  width: 80%;
+  align-self: flex-start;
+}
+
+.estrade-R .gradin:nth-child(3) {
+  width: 100%;
+  align-self: flex-start;
+}
+
+/* Génération des Têtes */
+.gradin::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20px 8px, #555 4px, transparent 4.5px);
+  background-size: 40px 100%;
+  background-repeat: repeat-x;
+  z-index: 2;
+}
+
+/* Génération des Corps */
+.gradin::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 100%;
+  height: 18px; 
+  z-index: 1;
+  background-image: linear-gradient(90deg, 
+    #e74c3c 0 40px, 
+    #3498db 40px 80px, 
+    #2ecc71 80px 120px, 
+    #f1c40f 120px 160px
+  );
+  background-size: 160px 100%;
+  background-repeat: repeat-x;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><polygon points="10,18 20,0 30,18" fill="black"/></svg>') 0 0 / 40px 100% repeat-x;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20"><polygon points="10,18 20,0 30,18" fill="black"/></svg>') 0 0 / 40px 100% repeat-x;
+}
+
+/* L'animation de saut permanent */
+@keyframes supporterLive {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Appliquer l'animation à tous les supporters tout le temps */
+.gradin::before,
+.gradin::after {
+  animation: supporterLive 0.6s ease-in-out infinite;
+}
+
+/* On décale l'animation selon les gradins */
+.gradin:nth-child(1)::before, 
+.gradin:nth-child(1)::after {
+  animation-delay: 0.1s;
+  animation-duration: 0.7s;
+}
+
+.gradin:nth-child(2)::before, 
+.gradin:nth-child(2)::after {
+  animation-delay: 0.3s;
+  animation-duration: 0.6s;
+}
+
+.gradin:nth-child(3)::before, 
+.gradin:nth-child(3)::after {
+  animation-delay: 0.5s;
+  animation-duration: 0.8s;
+}
+
+/* Quand on marque (classe celebrate) */
+.celebrate::before,
+.celebrate::after {
+  animation: supporterJump 0.3s ease-in-out infinite !important;
+}
+
+@keyframes supporterJump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Classe pour masquer le nom et la description */
+.fade-out {
+  opacity: 0 !important;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out !important;
+}
+
+
+
+/*
+
+
+
+
+
+
+PAGE ME CONTACTER
+
+
+
+
+
+
+
+*/
+
+
+.contact-section {
+  padding: 80px 20px;
+  background: radial-gradient(circle at center, #001e62 0%, #000b29 100%);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.contact-grid-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 50px auto;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #0046a8;
+  padding: 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  background: rgba(0, 70, 168, 0.2);
+  transform: translateY(-10px);
+  border-color: white;
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card-action {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #0046a8;
+  font-weight: bold;
+  background: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+/* Le formulaire "Feuille de match" */
+.contact-form-container {
+  max-width: 600px;
+  margin: 60px auto;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #0046a8;
+  background: #000b29;
+  color: white;
+  outline: none;
+}
+
+.contact-form input:focus {
+  border-color: white;
+}

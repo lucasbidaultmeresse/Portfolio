@@ -1,0 +1,204 @@
+
+<section class="hero">
+  <div class="estrade estrade-L">
+    <div class="gradin"></div>
+    <div class="gradin"></div>
+    <div class="gradin"></div>
+  </div>
+
+  <div class="container">
+    <h1>Lucas Bidault Meresse</h1>
+    <p>Bienvenue sur mon site. Je suis développeur web en formation dans le domaine d'applications web et mobiles.</p>
+  </div>
+
+  <div class="estrade estrade-R">
+    <div class="gradin"></div>
+    <div class="gradin"></div>
+    <div class="gradin"></div>
+  </div>
+</section>
+
+
+<section class="carousel-section">
+  <div class="carousel-wrapper show-ball">
+    <button class="nav-arrow prev" aria-label="Précédent">&#10094;</button>
+    <button class="nav-arrow next" aria-label="Suivant">&#10095;</button>
+
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <a href="/Projets/Greenpulse" class="carousel-slide">
+          <div class="lucarne-L"></div> <div class="lucarne-R"></div> <span class="target-text">Projet Greenpulse</span>
+        </a>
+        <a href="/Projets/Kaypicphoto" class="carousel-slide">
+          <div class="lucarne-L"></div> <div class="lucarne-R"></div> <span class="target-text">Kaypic photo</span>
+        </a>
+        <a href="/Projets/Recherchestage" class="carousel-slide">
+          <div class="lucarne-L"></div> <div class="lucarne-R"></div> <span class="target-text">Recherche de stage</span>
+        </a>
+        <a href="/Projets/Busterblockapi" class="carousel-slide">
+          <div class="lucarne-L"></div> <div class="lucarne-R"></div> <span class="target-text">Buster Block API</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="terrain-container show-ball">
+    <div class="terrain-herbe">
+      <div class="lignes-blanches">
+      
+        <div class="lignes-blanches1"></div>
+        <div class="lignes-blanches2"></div>
+        <div class="lignes-blanches3"></div>
+        <div class="lignes-blanches4"></div>
+
+      </div> 
+      
+      <div class="point-penalty"></div>
+
+    </div>
+</div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".carousel-container");
+  const track = document.querySelector(".carousel-track");
+  const nextBtn = document.querySelector(".nav-arrow.next");
+  const prevBtn = document.querySelector(".nav-arrow.prev");
+  const terrain = document.querySelector(".terrain-container");
+
+  const slides = Array.from(track.children);
+  const slideWidth = slides[0].getBoundingClientRect().width + 20; 
+  const totalOriginalWidth = slideWidth * slides.length;
+
+  // --- 1. CONFIGURATION DU CURSEUR BALLON ---
+  const ball = document.createElement("div");
+  ball.id = "football-cursor";
+  ball.innerHTML = `<img src="/ball.png" style="width: 60px; height: 60px; object-fit: contain;">`;
+  ball.style.display = "none";
+  document.body.appendChild(ball);
+
+  document.addEventListener("mousemove", (e) => {
+    ball.style.left = `${e.clientX}px`;
+    ball.style.top = `${e.clientY}px`;
+  });
+
+  const initCursorEvents = () => {
+    const ball = document.getElementById("football-cursor");
+    
+    // On sépare bien le Header (souris normale) du reste (ballon)
+    const header = document.querySelector(".site-header");
+    const activeZones = document.querySelectorAll(".hero, .carousel-wrapper, .terrain-container, .contact-card");
+
+    activeZones.forEach(zone => {
+      zone.addEventListener("mouseenter", () => {
+        ball.style.display = "flex";
+        document.body.style.cursor = "none";
+      });
+
+      zone.addEventListener("mouseleave", () => {
+        ball.style.display = "none";
+        document.body.style.cursor = "default";
+      });
+    });
+
+    // Sécurité Header : Uniquement pour la barre de navigation
+    if (header) {
+      header.addEventListener("mouseenter", () => {
+        ball.style.display = "none";
+        document.body.style.cursor = "default";
+      });
+    }
+
+    // Zones de retour à la souris normale (Flèches, Formulaire)
+    const uiElements = document.querySelectorAll(".nav-arrow, .contact-form input, .contact-form textarea, .contact-form button, .estrade, .container, .hero");
+
+    uiElements.forEach(el => {
+      el.addEventListener("mouseenter", (e) => {
+        ball.style.display = "none";
+        document.body.style.cursor = "default";
+        e.stopPropagation(); 
+      });
+
+      el.addEventListener("mouseleave", (e) => {
+        // Si on quitte un bouton mais qu'on est encore sur une carte ou le stade
+        // l'événement mouseenter du parent reprendra le dessus
+      });
+    });
+  };
+
+  // --- 2. ANIMATION DE ZOOM ---
+  const initZoomEvents = () => {
+    const gradins = document.querySelectorAll('.gradin');
+    const heroContent = document.querySelector('.hero .container');
+
+    document.querySelectorAll(".carousel-slide").forEach(slide => {
+      const target = slide.querySelector('.target-text');
+      if (target) {
+        target.addEventListener('click', (e) => {
+          gradins.forEach(gradin => {
+            gradin.classList.remove('celebrate');
+            void gradin.offsetWidth;
+            gradin.classList.add('celebrate');
+          });
+          if (heroContent) heroContent.classList.add('fade-out');
+          setTimeout(() => {
+            gradins.forEach(gradin => gradin.classList.remove('celebrate'));
+          }, 2200);
+        });
+      }
+
+      slide.onclick = (e) => {
+        e.preventDefault();
+        const destination = slide.getAttribute("href");
+        const rect = container.getBoundingClientRect();
+        const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+        const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        document.querySelectorAll(".estrade").forEach(est => {
+          est.style.transition = "opacity 0.5s ease";
+          est.style.opacity = "0";
+        });
+
+        container.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+        container.style.transition = "transform 1.2s ease-in-out, opacity 0.8s ease-in";
+        container.style.transform = 'scale(6)';
+        container.style.opacity = '0';
+
+        if (terrain) {
+          terrain.style.transition = "transform 2.8s ease-in-out, opacity 2.8s ease-in";
+          terrain.style.transform = "scale(2) translateY(300px)";
+          terrain.style.opacity = "0";
+        }
+        setTimeout(() => { window.location.href = destination; }, 1000);
+      };
+    });
+  };
+
+  // --- 3. CLONAGE ---
+  const cloneSetBefore = slides.map(s => s.cloneNode(true));
+  const cloneSetAfter = slides.map(s => s.cloneNode(true));
+  cloneSetBefore.forEach(clone => track.insertBefore(clone, track.firstChild));
+  cloneSetAfter.forEach(clone => track.appendChild(clone));
+
+  initCursorEvents();
+  initZoomEvents();
+
+  container.scrollLeft = totalOriginalWidth;
+
+  // --- 4. NAVIGATION ---
+  nextBtn.addEventListener("click", () => {
+    if (container.scrollLeft >= totalOriginalWidth * 2) {
+        container.scrollTo({ left: container.scrollLeft - totalOriginalWidth, behavior: 'instant' });
+    }
+    container.scrollBy({ left: slideWidth, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (container.scrollLeft <= slideWidth) {
+        container.scrollTo({ left: container.scrollLeft + totalOriginalWidth, behavior: 'instant' });
+    }
+    container.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+  });
+});
+</script>
