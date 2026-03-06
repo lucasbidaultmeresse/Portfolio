@@ -34,13 +34,19 @@
     </div>
 
     <div class="contact-form-container">
-      <h3>Envoyer une feuille de match</h3>
-      <form class="contact-form">
-        <input type="text" placeholder="Votre Nom / Entreprise" required>
-        <input type="email" placeholder="Votre Email" required>
-        <textarea placeholder="Votre projet ou proposition de transfert..." rows="5"></textarea>
-        <button type="submit" class="nav-btn">Envoyer la demande</button>
-      </form>
+        <h3>Envoyer une feuille de match</h3>
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+
+            <input type="hidden" name="access_key" value="f6e70f17-5b43-41cb-adb8-918d1e036408">
+
+            <input type="text" name="nom" placeholder="Votre Nom / Entreprise" required>
+            <input type="email" name="email" placeholder="Votre Email" required>
+            <textarea name="message" placeholder="Votre projet ou proposition de transfert..." rows="5" required></textarea>
+
+            <input type="hidden" name="redirect" value="https://ton-site.com/merci.html">
+
+            <button type="submit" class="nav-btn">Envoyer la demande</button>
+        </form>
     </div>
   </div>
 </section>

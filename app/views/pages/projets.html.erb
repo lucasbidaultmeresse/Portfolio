@@ -1,39 +1,111 @@
-<h2>Voici quelques projets que j’ai réalisés durant mon parcours au cégep de Rosemont en tant qu'étudiant !</h2>
+<section class="projets-section">
+  <h2 class="projets-intro">Fiches Techniques des Projets</h2>
 
-<div class="container">
+  <div class="projets-container">
+    
+    <div class="projet-card-tall" onclick="window.location.href='/Projets/Greenpulse'" style="cursor: pointer;">
+      <div class="card-header">
+        <span class="projet-tag">Application Web</span>
+        <h2>GreenPulse</h2>
+      </div>
+      <div class="card-body">
+        <div class="projet-description">
+          <p>Application d'achats et reventes de produits agricoles permettant des transactions entre un agriculteur et des acheteurs, système achat revente de produits.</p>
+        </div>
+        <div class="projet-stats">
+          <div class="stat-item"><span>Frontend</span> <div class="bar"><div class="fill" style="width: 75%;"></div></div></div>
+          <div class="stat-item"><span>Backend</span> <div class="bar"><div class="fill" style="width: 65%;"></div></div></div>
+          <div class="stat-item"><span>Database</span> <div class="bar"><div class="fill" style="width: 60%;"></div></div></div>
+        </div>
+        <ul class="projet-points">
+          <li>- Gestion des stocks agricoles en temps réel</li>
+          <li>- Simulation du système de paiement</li>
+          <li>- Interface pour les agriculteurs/clients</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <div class="tech-stack">Spring Boot • Angular • Java • SQL</div>
+        <a href="https://github.com/lucasbidaultmeresse/GreenPulse" target="_blank" class="projet-link" onclick="event.stopPropagation();">Voir le code source</a>
+      </div>
+    </div>
 
-  <div class="projet">
-    <h2>Application Web GreenPulse</h2>
-    <p>Application d'achats et reventes de produit agricoles.</p>
-    <a href="#">Voir le projet</a>
+    <div class="projet-card-tall" onclick="window.location.href='/Projets/Kaypicphoto'" style="cursor: pointer;">
+      <div class="card-header">
+        <span class="projet-tag">Application Web</span>
+        <h2>Kaypic Photo</h2>
+      </div>
+      <div class="card-body">
+        <div class="projet-description">
+          <p>Module permettant à un photographe de gérer ses prestations et de livrer des clichés à de possibles clients lié à des événements.</p>
+        </div>
+       <div class="projet-stats">
+          <div class="stat-item"><span>Frontend</span> <div class="bar"><div class="fill" style="width: 70%;"></div></div></div>
+          <div class="stat-item"><span>Backend</span> <div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+          <div class="stat-item"><span>Database</span> <div class="bar"><div class="fill" style="width: 50%;"></div></div></div>
+        </div>
+        <ul class="projet-points">
+          <li>- Portfolio dynamique pour photographes</li>
+          <li>- Gestion des réservations clients</li>
+          <li>- Galerie photo haute définition</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <div class="tech-stack">ASP.Net • Blazor • C# • SQL</div>
+        <a href="https://github.com/lucasbidaultmeresse/Kaypic-Photo" target="_blank" class="projet-link" onclick="event.stopPropagation();">Voir le code source</a>
+      </div>
+    </div>
+
+    <div class="projet-card-tall" onclick="window.location.href='/Projets/Recherchestage'" style="cursor: pointer;">
+      <div class="card-header">
+        <span class="projet-tag">Application Mobile</span>
+        <h2>Recherche de Stage</h2>
+      </div>
+      <div class="card-body">
+        <div class="projet-description">
+          <p>Application simulant la soumission d'une candidature d'un étudiant du Cégep de Rosemont à un stage proposé par une entreprise quelconque.</p>
+        </div>
+        <div class="projet-stats">
+          <div class="stat-item"><span>Architecture (MVVM)</span> <div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+          <div class="stat-item"><span>Gestion de Données (Room)</span> <div class="bar"><div class="fill" style="width: 75%;"></div></div></div>
+          <div class="stat-item"><span>Appels API (Retrofit)</span> <div class="bar"><div class="fill" style="width: 50%;"></div></div></div>
+        </div>
+        <ul class="projet-points">
+          <li>- Synchronisation entre l'application et une API simulé</li>
+          <li>- Mode Hors-ligne disponible</li>
+          <li>- UI Réactive avec Material Components</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <div class="tech-stack">Android Studio • Kotlin • Room</div>
+        <a href="https://github.com/lucasbidaultmeresse/Recherche-de-stage" target="_blank" class="projet-link" onclick="event.stopPropagation();">Voir le code source</a>
+      </div>
+    </div>
+
+    <div class="projet-card-tall" onclick="window.location.href='/Projets/Busterblockapi'" style="cursor: pointer;">
+      <div class="card-header">
+        <span class="projet-tag">Architecture API Backend</span>
+        <h2>Buster Block API</h2>
+      </div>
+      <div class="card-body">
+        <div class="projet-description">
+          <p>API REST complète pour la gestion de stocks, locations de films et membres d'une chaîne de magasins.</p>
+        </div>
+        <div class="projet-stats">
+          <div class="stat-item"><span>Gestion des Rôles (RBAC)</span> <div class="bar"><div class="fill" style="width: 55%;"></div></div></div>
+          <div class="stat-item"><span>Architecture Docker</span> <div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+          <div class="stat-item"><span>Sécurité JWT</span> <div class="bar"><div class="fill" style="width: 70%;"></div></div></div>
+        </div>
+        <ul class="projet-points">
+          <li>- Endpoints sécurisés (CRUD complet)</li>
+          <li>- Déploiement Containerisé</li>
+          <li>- Contrôle d'Accès Fin (Membre, Employé, Manager)</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <div class="tech-stack">Python • FastAPI • Docker • JWT</div>
+        <a href="https://github.com/lucasbidaultmeresse/BusterBlock-API" target="_blank" class="projet-link" onclick="event.stopPropagation();">Voir le code source</a>
+      </div>
+    </div>
+
   </div>
-
-  <div class="projet">
-    <h2>Application Web Kaypic Photo</h2>
-    <p>Module d'une application dans l'événementiel qui permet d'incarner le rôle d'un photographe qui souhaite offrir ses services avec des clients de la plateforme Kaypic.</p>
-    <a href="#">Voir le projet</a>
-  </div>
-
-  <div class="projet">
-    <h2>Application mobile de recherche de stage</h2>
-    <p>Application permettant de simuler une recherche de stages au sein du cépeg de Rosemont en tant qu'étudiant ou la création de stages en tant qu'entrepeneur.</p>
-    <a href="#">Voir le projet</a>
-  </div>
-
-  <div class="projet">
-    <h2>API REST Buster Block</h2>
-    <p>Une application API complète permettant la location de films au sein de magasins.</p>
-    <a href="#">Voir le projet</a>
-  </div>
-
-</div>
-
-<hr>
-
-<p>Nombre total de projets : <%= 4 %></p>
-
-<% if true %>
-  <p>De nouveaux projets arrivent bientôt.</p>
-<% else %>
-  <p>Pas de nouveaux projets pour le moment.</p>
-<% end %>
+</section>

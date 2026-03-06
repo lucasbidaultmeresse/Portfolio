@@ -202,3 +202,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+<script>
+    window.addEventListener('pageshow', function(event) {
+        // event.persisted est vrai si la page vient du cache du navigateur
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
+</script>
