@@ -27,7 +27,7 @@ get '/projets' do
 end
 
 # ROUTES PROJETS
-get '/projets/busterblock' do
+get '/projets/busterblockapi' do
   erb :"projets/busterblockapi"
 end
 
