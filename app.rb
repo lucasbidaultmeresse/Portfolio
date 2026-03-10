@@ -1,8 +1,14 @@
 require 'sinatra'
 
-set :root, File.dirname(__FILE__)
+# Force le chemin absolu vers la racine du projet
+set :root, File.expand_path('..', __FILE__)
+
+# Configuration explicite des dossiers
 set :views, File.join(settings.root, 'app', 'views')
-set :public_folder, File.expand_path('../public', __FILE__)
+set :public_folder, File.join(settings.root, 'public')
+
+# Optionnel : pour vérifier que Sinatra "voit" bien le dossier au démarrage
+puts "Dossier public configuré sur : #{settings.public_folder}"
 
 # Très important pour le débug sur Render
 set :show_exceptions, :after_handler
