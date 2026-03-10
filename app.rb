@@ -2,7 +2,7 @@ require 'sinatra'
 
 set :root, File.dirname(__FILE__)
 set :views, File.join(settings.root, 'app', 'views')
-set :public_folder, File.join(settings.root, 'public')
+set :public_folder, File.expand_path('../public', __FILE__)
 
 # Très important pour le débug sur Render
 set :show_exceptions, :after_handler
