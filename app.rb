@@ -19,6 +19,10 @@ helpers do
 end
 
 get '/' do
-  # On s'assure de chercher le bon fichier (home.erb ou home.html.erb)
-  erb :home
+  # On vérifie si le fichier .html.erb existe, sinon on prend le .erb
+  if File.exist?(File.join(settings.views, "home.html.erb"))
+    erb :"home.html"
+  else
+    erb :home
+  end
 end
