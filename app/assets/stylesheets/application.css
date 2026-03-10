@@ -1026,3 +1026,69 @@ PROJET PAGE INDIVIDEUL : GREENPULSE, Kaypic-Photo, Recherche-de-stage, Buster-BL
     font-weight: bold;
     cursor: pointer;
 }
+
+
+/*
+
+EXEMPLE D'ACTIONS AVEC L'API BUSTERBLOCK
+
+*/
+
+
+.api-documentation {
+    background: rgb(80, 80, 80);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.api-endpoint {
+    background: rgb(80, 80, 80);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.endpoint-header {
+    padding: 10px 15px;
+    background: rgb(80, 80, 80);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.method {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+}
+.get { background: #61affe; }
+.post { background: #49cc90; }
+.patch { background: #fca130; }
+.delete { background: #f93e3e; }
+
+.path { font-family: monospace; font-weight: bold; }
+
+.role-badge {
+    margin-left: auto;
+    font-size: 0.8em;
+    background: #333;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.endpoint-body {
+    padding: 15px;
+}
+
+pre {
+    background: #272822;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    overflow-x: auto;
+}

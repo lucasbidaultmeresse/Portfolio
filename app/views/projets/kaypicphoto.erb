@@ -17,28 +17,90 @@
 
     <main class="projets-section">
         <section class="project-gallery">
-            <h3>📸 Aperçu de l'application (Captures d'écran)</h3>
-            <div class="gallery-grid">
-                <div class="screenshot-container">
-                    <div class="screenshot-frame">
-                        <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                <h3>Aperçu de l'application (Captures d'écran)</h3>
+                <div class="gallery-grid">
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Inscription_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Inscription à la plateforme</p>
                     </div>
-                    <p class="screenshot-caption">Portfolio Photographe</p>
-                </div>
-                <div class="screenshot-container">
-                    <div class="screenshot-frame">
-                        <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+
+
+                    
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Accueil_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Page d'accueil de l'application</p>
                     </div>
-                    <p class="screenshot-caption">Gestion des Réservations</p>
-                </div>
-                <div class="screenshot-container">
-                    <div class="screenshot-frame">
-                        <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Explorer_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Mode explorer de toutes les photos disponibles sur la plateforme.</p>
                     </div>
-                    <p class="screenshot-caption">Galerie Client HD</p>
-                </div>
-            </div> 
-        </section>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Mes_Albums_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Mes albums</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                             <%= image_tag "kaypic/Album_Photo_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Liste des photos disponible dans un album.</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Annonces_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Annonces de disponibilités faites par des photographes.</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Gestion_Du_Compte_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Gestion de notre profil utilisateur</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Messagerie_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Messagerie textuelle</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Mon_Profil_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Détails de mon profil</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Photographe_Profil_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Profil publique d'un photographe</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "kaypic/Photographes_Kaypic.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Liste des photographes de la plateforme</p>
+                    </div>
+
+                </div> 
+            </section>
 
         <div class="final-action" style="margin-top: 40px; text-align: center;">
             <a href="https://github.com/lucasbidaultmeresse/Kaypic-Photo" target="_blank" class="github-btn">
@@ -52,9 +114,9 @@
         <div class="project-detail-container">
             <section class="detail-grid">
                 <div class="detail-card">
-                    <h3>📋 Description du projet</h3>
+                    <h3>Description du projet</h3>
                     <br>
-                    <p>Module dédié aux photographes pour centraliser la gestion des événements, les réservations clients et la livraison de photos haute définition.</p>
+                    <p>Module dédié aux photographes pour centraliser la gestion des événements duquel un professionnel souhaiterai simplifier pour gagner du temps et utiliser une interface conviviale. En effet la plateforme offres des services comme les réservations clients, la livraison de photos haute définition, la possibilité de faire des annonces, créer son propre portfolio de photographie ou gérer un vrai business afin d'exposer ses plus belles réalisations.</p>
                     <br>
                     <p>Projet fait en collaboration avec :</p>
                     <ul class="tech-list">
@@ -64,26 +126,27 @@
                     </ul>
                 </div>
                 <div class="detail-card">
-                    <h3>⚙️ Dispositif Technique</h3>
+                    <h3>Dispositif Technique</h3>
                     <ul class="tech-list">
                         <li><strong>Framework :</strong> ASP.Net Core & Blazor</li>
-                        <li><strong>Langage :</strong> C#</li>
+                        <li><strong>Langage :</strong> C#, HTML, CSS, Javascript</li>
                         <li><strong>Base de données :</strong> SQL</li>
                         <li><strong>Frontend :</strong> Portfolio dynamique réactif</li>
+                        <li><strong>Librairies :</strong> ASP.Net : SignalR, Identity, Core, Authorization</li>
                     </ul>
                 </div>
             </section>
 
             <section class="analysis-section">
-                <h3>📊 Analyse des Performances</h3>
+                <h3>Quelques fonctionnalités incluses :</h3>
                 <div class="analysis-grid">
                     <div class="analysis-item">
                         <h4>Média</h4>
-                        <p>Optimisation de l'affichage des galeries haute définition.</p>
+                        <p>Optimisation de l'affichage des galeries haute définition à la manière d'un portfolio.</p>
                     </div>
                     <div class="analysis-item">
                         <h4>Réservation</h4>
-                        <p>Système de calendrier et de suivi des prestations clients.</p>
+                        <p>Système d'annonces et de contact entre les prestations d'un photographe et ses clients.</p>
                     </div>
                     <div class="analysis-item">
                         <h4>Expérience</h4>

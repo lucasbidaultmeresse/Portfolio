@@ -19,28 +19,77 @@
     <main class="projets-section">
 
         <section class="project-gallery">
-                <h3>📸 Aperçu de l'application (Captures d'écran)</h3>
+                <h3>Aperçu de l'application (Captures d'écran)</h3>
                 <div class="gallery-grid">
                     
                     <div class="screenshot-container">
                         <div class="screenshot-frame">
-                            <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                            <%= image_tag "greenpulse/Accueil_GreenPulse.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
                         </div>
-                        <p class="screenshot-caption">Tableau de bord principal</p>
+                        <p class="screenshot-caption">Page d'accueil de l'application.</p>
                     </div>
 
                     <div class="screenshot-container">
                         <div class="screenshot-frame">
-                            <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                            <%= image_tag "greenpulse/Accueil_GreenPulse2.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
                         </div>
-                        <p class="screenshot-caption">Gestion des données</p>
+                        <p class="screenshot-caption">Page d'accueil de l'application (suite).</p>
                     </div>
 
                     <div class="screenshot-container">
                         <div class="screenshot-frame">
-                            <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                            <%= image_tag "greenpulse/Ajouter_Produit_GreenPulse.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
                         </div>
-                        <p class="screenshot-caption">Détails des transactions</p>
+                        <p class="screenshot-caption">Ajouter un nouveau produit en tant qu'agriculteur.</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "greenpulse/Ajouter_Produit_GreenPulse2.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Ajouter un nouveau produit en tant qu'agriculteur (suite).</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "greenpulse/Messagerie_GreenPulse.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Messagerie textuelle (contacter).</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "greenpulse/Messagerie_GreenPulse2.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Messagerie textuelle (conversation).</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "greenpulse/Preferences_GreenPulse.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Préférences de l'utilisateurs.</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "greenpulse/Produits_GreenPulse.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Liste des produits disponibles.</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "greenpulse/QR_Code_GreenPulse.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">QR Code associé à un produit</p>
+                    </div>
+
+                    <div class="screenshot-container">
+                        <div class="screenshot-frame">
+                            <%= image_tag "greenpulse/Theme_Sombre_GreenPulse.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
+                        </div>
+                        <p class="screenshot-caption">Thème sombre</p>
                     </div>
 
                 </div> 
@@ -58,9 +107,9 @@
         <div class="project-detail-container">
             <section class="detail-grid">
                 <div class="detail-card">
-                    <h3>📋 Description du projet</h3>
+                    <h3>Description du projet</h3>
                     <br>
-                    <p>GreenPulse s'attaque au gaspillage alimentaire en permettant des transactions directes entre agriculteurs et acheteurs via un système de gestion de surplus localisé au Québec.</p>
+                    <p>GreenPulse est ainsi une solution numérique novatrice qui s’inscrit dans une double lutte : celle contre le gaspillage alimentaire au Québec. Car cette plateforme est enfin une place de marché vivante au sens propre. Elle relie, entre elles et directement, les producteurs agricoles et les acheteurs locaux en valorisant en plus les surplus de production qui seraient perdus autrement.</p>
                     <br>
                     <p>Projet fait en collaboration avec :</p>
                     <ul class="tech-list">
@@ -69,18 +118,20 @@
                     </ul>
                 </div>
                 <div class="detail-card">
-                    <h3>⚙️ Dispositif Technique</h3>
+                    <h3>Dispositif Technique</h3>
                     <ul class="tech-list">
                         <li><strong>Framework :</strong> Spring Boot & Angular</li>
                         <li><strong>Langage :</strong> Java / TypeScript</li>
                         <li><strong>Base de données :</strong> SQL</li>
                         <li><strong>Concepts :</strong> Système de paiement & Gestion de stock</li>
+                        <li><strong>Librairies :</strong> Google ZXing,  Ollama IA, Leaflet Carte Interactive</li>
+                         
                     </ul>
                 </div>
             </section>
 
             <section class="analysis-section">
-                <h3>📊 Analyse des Performances</h3>
+                <h3>Quelques fonctionnalités incluses :</h3>
                 <div class="analysis-grid">
                     <div class="analysis-item">
                         <h4>Temps Réel</h4>

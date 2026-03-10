@@ -17,28 +17,11 @@
 
     <main class="projets-section">
         <section class="project-gallery">
-            <h3>📸 Aperçu de l'application (Captures d'écran)</h3>
-            <div class="gallery-grid">
-                <div class="screenshot-container">
-                    <div class="screenshot-frame">
-                        <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
-                    </div>
-                    <p class="screenshot-caption">Documentation Swagger UI</p>
-                </div>
-                <div class="screenshot-container">
-                    <div class="screenshot-frame">
-                        <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
-                    </div>
-                    <p class="screenshot-caption">Tests Postman Endpoints</p>
-                </div>
-                <div class="screenshot-container">
-                    <div class="screenshot-frame">
-                        <%= image_tag "test.png", alt: "Aperçu", onclick: "openLightbox(this)", style: "cursor: zoom-in;" %>
-                    </div>
-                    <p class="screenshot-caption">Schéma de Base de Données</p>
-                </div>
-            </div> 
+            <h3>Aperçu de l'application (Captures d'écran)</h3>
+            <h4>Aucunes photos disponibles pour le moment</h4>
+            
         </section>
+
 
         <div class="final-action" style="margin-top: 40px; text-align: center;">
             <a href="https://github.com/lucasbidaultmeresse/BusterBlock-API" target="_blank" class="github-btn">
@@ -52,7 +35,7 @@
         <div class="project-detail-container">
             <section class="detail-grid">
                 <div class="detail-card">
-                    <h3>📋 Description du projet</h3>
+                    <h3>Description du projet</h3>
                     <br>
                     <p>Architecture Backend robuste permettant de gérer les membres, les stocks de films/jeux et les locations pour une chaîne de magasins.</p>
                     <br>
@@ -64,7 +47,7 @@
                     </ul>
                 </div>
                 <div class="detail-card">
-                    <h3>⚙️ Dispositif Technique</h3>
+                    <h3>Dispositif Technique</h3>
                     <ul class="tech-list">
                         <li><strong>Framework :</strong> Python / FastAPI</li>
                         <li><strong>Conteneur :</strong> Docker Compose</li>
@@ -75,7 +58,7 @@
             </section>
 
             <section class="analysis-section">
-                <h3>📊 Analyse des Performances</h3>
+                <h3>Quelques fonctionnalités incluses :</h3>
                 <div class="analysis-grid">
                     <div class="analysis-item">
                         <h4>RBAC</h4>
@@ -92,6 +75,57 @@
                 </div>
             </section>
         </div>
+
+        <section class="api-documentation">
+            <h3>Spécifications de l'API (Points d'accès)</h3>
+
+            <div class="api-endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <code class="path">/magasins</code>
+                    <span class="role-badge">Visiteur +</span>
+                </div>
+                <div class="endpoint-body">
+                    <p>Récupère la liste des magasins avec filtrage optionnel par nom.</p>
+                    <br>
+                    
+                    <h5>Paramètres de requête :</h5>
+                    <br>
+                    <ul>
+                        <li><code>nom</code> (string, optionnel) : Recherche partielle.</li>
+                    </ul>
+                    <br>
+                    <h5>Exemple de réponse (JSON) :</h5>
+                    <br>
+                    <pre><code>[
+        {
+
+            "id": 1,
+
+            "nom": "Cégep Rosemont Video",
+
+            "nb_films_disponibles": 124,
+
+            "status": "Ouvert"
+        
+        }
+    ]</code></pre>
+                </div>
+            </div>
+
+            <div class="api-endpoint">
+                <div class="endpoint-header">
+                    <span class="method post">POST</span>
+                    <code class="path">/magasins</code>
+                    <span class="role-badge manager">Manager uniquement</span>
+                </div>
+                <div class="endpoint-body">
+                    <p>Création d'un nouveau magasin. Vérifie l'unicité du nom et de l'ID.</p>
+                    <br>
+                    <h5>Code de succès : <span class="status-code">201 Created</span></h5>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
