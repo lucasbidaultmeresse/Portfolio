@@ -1,26 +1,15 @@
 require 'sinatra'
 
-# Racine du projet
 set :root, File.dirname(__FILE__)
-
-# On remonte d'un dossier pour englober 'pages' et 'projets'
 set :views, File.join(settings.root, 'app', 'views')
 set :public_folder, File.join(settings.root, 'public')
 
+# Très important pour le débug sur Render
 set :show_exceptions, :after_handler
 
-helpers do
-  def image_tag(path, options = {})
-    src = "/assets/images/#{path}"
-    attrs = options.map { |k, v| "#{k}='#{v}'" }.join(" ")
-    "<img src='#{src}' #{attrs}>"
-  end
-end
-
-# --- PAGES PRINCIPALES ---
-
+# ROUTES PRINCIPALES
 get '/' do
-  erb :"pages/home"
+  erb :"pages/home" # Sinatra va automatiquement utiliser views/layout.erb
 end
 
 get '/contacter' do
@@ -28,12 +17,10 @@ get '/contacter' do
 end
 
 get '/projets' do
-  # Sinatra trouvera projets.html.erb ou projets.erb
   erb :"pages/projets"
 end
 
-# --- PAGES DÉTAILS PROJETS ---
-
+# ROUTES PROJETS
 get '/projets/busterblock' do
   erb :"projets/busterblockapi"
 end
