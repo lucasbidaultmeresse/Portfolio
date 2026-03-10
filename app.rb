@@ -6,6 +6,7 @@ set :root, File.expand_path('..', __FILE__)
 # Configuration explicite des dossiers
 set :views, File.join(settings.root, 'app', 'views')
 set :public_folder, File.join(settings.root, 'public')
+set :public_folder, File.dirname(__FILE__) + '/public'
 
 # Optionnel : pour vérifier que Sinatra "voit" bien le dossier au démarrage
 puts "Dossier public configuré sur : #{settings.public_folder}"
