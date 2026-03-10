@@ -1,14 +1,19 @@
 require 'sinatra'
 
-# FORCE l'affichage de l'erreur détaillée sur Render
-set :show_exceptions, :after_handler
-set :raise_errors, true
+# Configuration des dossiers
+set :views, File.join(settings.root, 'app/views/pages')
+set :public_folder, File.expand_path('../public', __FILE__)
 
-# Chemins simplifiés vers tes dossiers
-set :views, File.join(File.dirname(__FILE__), 'app', 'views', 'pages')
+# Helper pour simuler Ruby on Rails
+helpers do
+  def image_tag(path, options = {})
+    # On gère le fait que tes images sont dans des sous-dossiers spécifiques
+    src = "/#{path}" 
+    attrs = options.map { |k, v| "#{k}='#{v}'" }.join(" ")
+    "<img src='#{src}' #{attrs}>"
+  end
+end
 
-set :public_folder, File.join(File.dirname(__FILE__), 'public')
-
-  get '/' do
-  erb :"home.html" # Les guillemets et les deux-points sont importants ici
+get '/' do
+  erb :home # Cherche app/views/pages/home.html.erb
 end
