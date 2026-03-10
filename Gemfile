@@ -1,9 +1,7 @@
 source "https://rubygems.org"
 
-# Le moteur de ton serveur
 gem "sinatra"
-# Le serveur web léger
-gem "webrick"
-
-# Optionnel : si tu as besoin de gérer des variables d'environnement
+gem "rackup"        # Obligatoire pour Sinatra 3+
+gem "puma"          # Le serveur recommandé par Render
+gem "webrick"       # Garde-le par sécurité
 gem "dotenv", groups: [:development, :test]
