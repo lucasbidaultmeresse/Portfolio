@@ -8,7 +8,6 @@ set :raise_errors, true
 set :views, File.join(File.dirname(__FILE__), 'app', 'views', 'pages')
 set :public_folder, File.join(File.dirname(__FILE__), 'public')
 
-get '/' do
-  # On essaie d'afficher home.erb ou home.html.erb
-  erb :home
+  get '/' do
+  erb :"home.html" # Les guillemets et les deux-points sont importants ici
 end
